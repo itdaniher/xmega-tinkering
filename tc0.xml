@@ -1,0 +1,159 @@
+<stuff>
+<module id="I6090" name="TC" version="XMEGAAU">
+ <instance name="TCC0">
+  <register-group address-space="data" name="TCC0" name-in-module="TC0" offset="0x800">
+  </register-group>
+ </instance>
+ <instance name="TCC1">
+  <register-group address-space="data" name="TCC1" name-in-module="TC1" offset="0x840">
+  </register-group>
+ </instance>
+ <instance name="TCD0">
+  <register-group address-space="data" name="TCD0" name-in-module="TC0" offset="0x900">
+  </register-group>
+ </instance>
+ <instance name="TCD1">
+  <register-group address-space="data" name="TCD1" name-in-module="TC1" offset="0x940">
+  </register-group>
+ </instance>
+ <instance name="TCE0">
+  <register-group address-space="data" name="TCE0" name-in-module="TC0" offset="0xA00">
+  </register-group>
+ </instance>
+</module>
+
+<register-group caption="16-bit Timer/Counter 0" name="TC0" size="64">
+ <register caption="Control  Register A" name="CTRLA" offset="0x00" size="1">
+  <bitfield caption="Clock Selection" mask="0x0F" name="CLKSEL" values="TC_CLKSEL">
+  </bitfield>
+ </register>
+ <register caption="Control Register B" name="CTRLB" offset="0x01" size="1">
+  <bitfield caption="Compare or Capture D Enable" mask="0x80" name="CCDEN">
+  </bitfield>
+  <bitfield caption="Compare or Capture C Enable" mask="0x40" name="CCCEN">
+  </bitfield>
+  <bitfield caption="Compare or Capture B Enable" mask="0x20" name="CCBEN">
+  </bitfield>
+  <bitfield caption="Compare or Capture A Enable" mask="0x10" name="CCAEN">
+  </bitfield>
+  <bitfield caption="Waveform generation mode" mask="0x07" name="WGMODE" values="TC_WGMODE">
+  </bitfield>
+ </register>
+ <register caption="Control register C" name="CTRLC" offset="0x02" size="1">
+  <bitfield caption="Compare D Output Value" mask="0x08" name="CMPD">
+  </bitfield>
+  <bitfield caption="Compare C Output Value" mask="0x04" name="CMPC">
+  </bitfield>
+  <bitfield caption="Compare B Output Value" mask="0x02" name="CMPB">
+  </bitfield>
+  <bitfield caption="Compare A Output Value" mask="0x01" name="CMPA">
+  </bitfield>
+ </register>
+ <register caption="Control Register D" name="CTRLD" offset="0x03" size="1">
+  <bitfield caption="Event Action" mask="0xE0" name="EVACT" values="TC_EVACT">
+  </bitfield>
+  <bitfield caption="Event Delay" mask="0x10" name="EVDLY">
+  </bitfield>
+  <bitfield caption="Event Source Select" mask="0x0F" name="EVSEL" values="TC_EVSEL">
+  </bitfield>
+ </register>
+ <register caption="Control Register E" name="CTRLE" offset="0x04" size="1">
+  <bitfield caption="Byte Mode" mask="0x03" name="BYTEM" values="TC_BYTEM">
+  </bitfield>
+ </register>
+ <register caption="Interrupt Control Register A" name="INTCTRLA" offset="0x06" size="1">
+  <bitfield caption="Error Interrupt Level" mask="0x0C" name="ERRINTLVL" values="TC_ERRINTLVL">
+  </bitfield>
+  <bitfield caption="Overflow interrupt level" mask="0x03" name="OVFINTLVL" values="TC_OVFINTLVL">
+  </bitfield>
+ </register>
+ <register caption="Interrupt Control Register B" name="INTCTRLB" offset="0x07" size="1">
+  <bitfield caption="Compare or Capture D Interrupt Level" mask="0xC0" name="CCDINTLVL" values="TC_CCDINTLVL">
+  </bitfield>
+  <bitfield caption="Compare or Capture C Interrupt Level" mask="0x30" name="CCCINTLVL" values="TC_CCCINTLVL">
+  </bitfield>
+  <bitfield caption="Compare or Capture B Interrupt Level" mask="0x0C" name="CCBINTLVL" values="TC_CCBINTLVL">
+  </bitfield>
+  <bitfield caption="Compare or Capture A Interrupt Level" mask="0x03" name="CCAINTLVL" values="TC_CCAINTLVL">
+  </bitfield>
+ </register>
+ <register caption="Control Register F Clear" name="CTRLFCLR" offset="0x08" size="1">
+  <bitfield caption="Command" mask="0x0C" name="CMD">
+  </bitfield>
+  <bitfield caption="Lock Update" mask="0x02" name="LUPD">
+  </bitfield>
+  <bitfield caption="Direction" mask="0x01" name="DIR">
+  </bitfield>
+ </register>
+ <register caption="Control Register F Set" name="CTRLFSET" offset="0x09" size="1">
+  <bitfield caption="Command" mask="0x0C" name="CMD" values="TC_CMD">
+  </bitfield>
+  <bitfield caption="Lock Update" mask="0x02" name="LUPD">
+  </bitfield>
+  <bitfield caption="Direction" mask="0x01" name="DIR">
+  </bitfield>
+ </register>
+ <register caption="Control Register G Clear" name="CTRLGCLR" offset="0x0A" size="1">
+  <bitfield caption="Compare or Capture D Buffer Valid" mask="0x10" name="CCDBV">
+  </bitfield>
+  <bitfield caption="Compare or Capture C Buffer Valid" mask="0x08" name="CCCBV">
+  </bitfield>
+  <bitfield caption="Compare or Capture B Buffer Valid" mask="0x04" name="CCBBV">
+  </bitfield>
+  <bitfield caption="Compare or Capture A Buffer Valid" mask="0x02" name="CCABV">
+  </bitfield>
+  <bitfield caption="Period Buffer Valid" mask="0x01" name="PERBV">
+  </bitfield>
+ </register>
+ <register caption="Control Register G Set" name="CTRLGSET" offset="0x0B" size="1">
+  <bitfield caption="Compare or Capture D Buffer Valid" mask="0x10" name="CCDBV">
+  </bitfield>
+  <bitfield caption="Compare or Capture C Buffer Valid" mask="0x08" name="CCCBV">
+  </bitfield>
+  <bitfield caption="Compare or Capture B Buffer Valid" mask="0x04" name="CCBBV">
+  </bitfield>
+  <bitfield caption="Compare or Capture A Buffer Valid" mask="0x02" name="CCABV">
+  </bitfield>
+  <bitfield caption="Period Buffer Valid" mask="0x01" name="PERBV">
+  </bitfield>
+ </register>
+ <register caption="Interrupt Flag Register" name="INTFLAGS" offset="0x0C" size="1">
+  <bitfield caption="Compare or Capture D Interrupt Flag" mask="0x80" name="CCDIF">
+  </bitfield>
+  <bitfield caption="Compare or Capture C Interrupt Flag" mask="0x40" name="CCCIF">
+  </bitfield>
+  <bitfield caption="Compare or Capture B Interrupt Flag" mask="0x20" name="CCBIF">
+  </bitfield>
+  <bitfield caption="Compare or Capture A Interrupt Flag" mask="0x10" name="CCAIF">
+  </bitfield>
+  <bitfield caption="Error Interrupt Flag" mask="0x02" name="ERRIF">
+  </bitfield>
+  <bitfield caption="Overflow Interrupt Flag" mask="0x01" name="OVFIF">
+  </bitfield>
+ </register>
+ <register caption="Temporary Register For 16-bit Access" name="TEMP" offset="0x0F" size="1">
+ </register>
+ <register caption="Count" name="CNT" offset="0x20" size="2">
+ </register>
+ <register caption="Period" name="PER" offset="0x26" size="2">
+ </register>
+ <register caption="Compare or Capture A" name="CCA" offset="0x28" size="2">
+ </register>
+ <register caption="Compare or Capture B" name="CCB" offset="0x2A" size="2">
+ </register>
+ <register caption="Compare or Capture C" name="CCC" offset="0x2C" size="2">
+ </register>
+ <register caption="Compare or Capture D" name="CCD" offset="0x2E" size="2">
+ </register>
+ <register caption="Period Buffer" name="PERBUF" offset="0x36" size="2">
+ </register>
+ <register caption="Compare Or Capture A Buffer" name="CCABUF" offset="0x38" size="2">
+ </register>
+ <register caption="Compare Or Capture B Buffer" name="CCBBUF" offset="0x3A" size="2">
+ </register>
+ <register caption="Compare Or Capture C Buffer" name="CCCBUF" offset="0x3C" size="2">
+ </register>
+ <register caption="Compare Or Capture D Buffer" name="CCDBUF" offset="0x3E" size="2">
+ </register>
+</register-group>
+</stuff>
